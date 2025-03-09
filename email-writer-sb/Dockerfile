@@ -14,6 +14,9 @@ RUN chmod +x mvnw && ./mvnw dependency:go-offline
 # Copy the entire source code
 COPY email-writer-sb /app
 
+# Grant execute permission for Maven wrapper (Fix for Permission Denied)
+RUN chmod +x mvnw
+
 # Build the JAR file
 RUN ./mvnw clean package -DskipTests
 
