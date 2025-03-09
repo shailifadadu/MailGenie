@@ -5,14 +5,14 @@ FROM openjdk:20-jdk-slim
 WORKDIR /app
 
 # Copy the Maven wrapper and pom.xml first to leverage Docker cache
-COPY pom.xml mvnw ./
-COPY .mvn/ .mvn/
+COPY email-writer-sb/pom.xml email-writer-sb/mvnw ./
+COPY email-writer-sb/.mvn/ .mvn/
 
 # Download dependencies
 RUN chmod +x mvnw && ./mvnw dependency:go-offline
 
 # Copy the entire source code
-COPY . .
+COPY email-writer-sb /app
 
 # Build the JAR file
 RUN ./mvnw clean package -DskipTests
