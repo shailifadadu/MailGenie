@@ -17,7 +17,7 @@ function EmailReplyGenerator() {
     setError("");
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/email/generate",
+        "https://mailgenie-backend.onrender.com/api/email/generate",
         {
           emailContent,
           tone,
