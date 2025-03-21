@@ -61,16 +61,19 @@ function injectButton() {
       btn.disabled = true;
 
       const emailContent = getEmailContent();
-      const response = await fetch("http://localhost:8080/api/email/generate", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          emailContent: emailContent,
-          tone: "professional",
-        }),
-      });
+      const response = await fetch(
+        "https://mailgenie-backend.onrender.com/api/email/generate",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            emailContent: emailContent,
+            tone: "professional",
+          }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("API Request Failed");

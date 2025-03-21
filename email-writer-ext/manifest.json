@@ -4,7 +4,10 @@
   "version": "1.0",
   "manifest_version": 3,
   "permissions": ["activeTab", "storage"],
-  "host_permissions": ["http://localhost:8080/*", "*://mail.google.com/*"],
+  "host_permissions": [
+    "https://mailgenie-backend.onrender.com/*",
+    "*://mail.google.com/*"
+  ],
   "content_scripts": [
     {
       "js": ["content.js"],
